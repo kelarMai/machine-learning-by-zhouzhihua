@@ -76,19 +76,12 @@ def lsqr(A,b,alpha = 0.01,error = 0.01,count = 100000):
     # print(f"A 的值 {A}；\nb 的值 {b}")
     ## 求导数，然后梯度下降
     temp_derivate = np.zeros_like(X)
-    while True:
-    ## 先使用 for 进行测试和验证
-    # for t in range(2000):
+    for t in range(count):
         ## 导数
         temp_AX_b = A.dot(X) - b
         temp_derivate = alpha*(A_T.dot(temp_AX_b))
         # print(f"temp_derivate: {temp_derivate}")
         X = X - temp_derivate
-        
-        ## 根据最大下降次数返回
-        if count_cumulate > count:
-            return  X,error_temp
-        count_cumulate += 1
         
         ## 计算误差
         error_temp = (A.dot(X) - b)**2
@@ -98,4 +91,5 @@ def lsqr(A,b,alpha = 0.01,error = 0.01,count = 100000):
         # print("\n")
         if error_temp <= error:
             return X,error_temp
-    pass
+
+    return  X,error_temp

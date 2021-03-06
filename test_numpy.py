@@ -2,8 +2,11 @@
 import numpy as np
 a = [[1,2,3,4],[4,5,6,7],[7,8,9,10]]
 a_array = np.array(a)
-# b = [1,2,3]
-# b_array = np.array(b)
+
+b = [1,2,3]
+b_array = np.array(b)
+
+# print(np.zeros(a_array.shape[1]))
 # print(a_array.T.dot(b))
 # print(a_array.ndim)
 # print(np.power(b_array,2))
@@ -22,7 +25,9 @@ a_array = np.array(a)
 
 # print(isinstance(a_array,np.ndarray))
 
+# print(np.c_[a,np.ones(3)])
 
+print(b_array*np.array([2,3,4]))
 
 ## a_test[:,i] = a_temp 广播方法的测试，这里重点是 dtype 需要设定
 # a_test = np.empty_like(a_array,dtype=float)
